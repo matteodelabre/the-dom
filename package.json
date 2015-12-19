@@ -1,7 +1,7 @@
 {
   "name": "the-dom",
   "version": "0.1.0",
-  "description": "Lightweight shortcuts for accessing the DOM",
+  "description": "A lightweight module providing a clean API to work with DOM nodes",
   "main": "index.js",
   "scripts": {
     "test": "tape tests/**/*.js | tap-spec"
