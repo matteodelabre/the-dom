@@ -1,0 +1,22 @@
+{
+  "name": "the-dom",
+  "version": "0.1.0",
+  "description": "Lightweight shortcuts for accessing the DOM",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape tests/**/*.js | tap-spec"
+  },
+  "keywords": [
+    "dom",
+    "html",
+    "tree",
+    "shortcut"
+  ],
+  "author": "Mattéo Delabre",
+  "license": "MIT",
+  "devDependencies": {
+    "jsdom": "^7.2.1",
+    "tape": "^4.2.2",
+    "tap-spec": "^4.1.1"
+  }
+}
