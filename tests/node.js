@@ -35,8 +35,8 @@ test('should provide access to the unwrapped node', assert => {
 });
 
 test('should traverse children', assert => {
-    assert.equal(node(body).find('div').node, div, 'find div in body');
-    assert.equal(node(head).find('title').node, title, 'find title in head');
+    assert.ok(node(body).find('div').equal(div), 'find div in body');
+    assert.ok(node(head).find('title').equal(title), 'find title in head');
     assert.equal(node(body).find('undef'), null, 'don\'t wrap null');
 
     // assert.equal(node(body).findAll('div').length, 2, 'find all divs');
@@ -45,18 +45,16 @@ test('should traverse children', assert => {
 });
 
 test('should move in the DOM tree', assert => {
-    assert.equal(node(body).find('div').parent().node, body, 'div parent');
+    assert.ok(node(body).find('div').parent.equal(body), 'div parent');
     // assert.equal(node(head).children()[1], node(title), 'head children');
-
-
 
     assert.end();
 });
 
 test('should access and set els properties and attributes', assert => {
-    assert.equal(node(body).getType(), 'body', 'body type');
-    assert.equal(node(body).getKind(), 'element', 'body kind');
-    assert.equal(node(document).getKind(), 'document', 'doc kind');
+    assert.equal(node(body).type, 'body', 'body type');
+    assert.equal(node(body).kind, 'element', 'body kind');
+    assert.equal(node(document).kind, 'document', 'doc kind');
     assert.equal(node(head).find('meta').getAttr('charset'), 'utf-8', 'get charset attribute');
 
     node(div).setAttr('data-test', 'true');
@@ -127,20 +125,26 @@ test('should manpulate styles as a map', assert => {
 test('should change content', assert => {
     let subnode = node(document.createElement('span'));
 
-    assert.equal(subnode.getContent(), '', 'get content');
-    subnode.setContent('This is a test');
-    assert.equal(subnode.getContent(), 'This is a test', 'change content');
+    assert.equal(subnode.content, '', 'get content');
+    subnode.content = 'This is a test';
+    assert.equal(subnode.content, 'This is a test', 'change content');
 
-    assert.equal(subnode.getHTML(), 'This is a test', 'get html');
-    subnode.setHTML('<span>subtest</span>');
-    assert.equal(subnode.getContent(), 'subtest', 'get content inside html');
-    assert.equal(subnode.getHTML(), '<span>subtest</span>', 'change html contents');
+    assert.equal(subnode.html, 'This is a test', 'get html');
+    subnode.html = '<span>subtest</span>';
+    assert.equal(subnode.content, 'subtest', 'get content inside html');
+    assert.equal(subnode.html, '<span>subtest</span>', 'change html contents');
 
-    assert.equal(subnode.parent(), null, 'new node has no parent');
+    assert.end();
+});
+
+test('should change tree', assert => {
+    let subnode = node(document.createElement('span'));
+
+    assert.equal(subnode.parent, null, 'new node has no parent');
     node(div).append(subnode);
-    assert.equal(subnode.parent().node, div, 'append node');
+    assert.ok(subnode.parent.equal(div), 'append node');
     subnode.attach(node(body));
-    assert.equal(subnode.parent().node, body, 'attach node');
+    assert.ok(subnode.parent.equal(body), 'attach node');
 
     assert.end();
 });
