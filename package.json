@@ -4,7 +4,7 @@
   "description": "A lightweight module providing a clean API to work with DOM nodes",
   "main": "index.js",
   "scripts": {
-    "test": "tape tests/**/*.js | tap-spec"
+    "test": "browserify tests/*.js | tape-run --render='tap-spec'"
   },
   "keywords": [
     "dom",
@@ -15,8 +15,9 @@
   "author": "Mattéo Delabre",
   "license": "MIT",
   "devDependencies": {
-    "jsdom": "^7.2.1",
+    "browserify": "^12.0.1",
+    "tap-spec": "^4.1.1",
     "tape": "^4.2.2",
-    "tap-spec": "^4.1.1"
+    "tape-run": "^2.1.0"
   }
 }
