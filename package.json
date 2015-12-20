@@ -3,6 +3,14 @@
   "version": "0.1.0",
   "description": "A lightweight module providing a clean API to work with DOM nodes",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MattouFP/the-dom.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MattouFP/the-dom/issues"
+  },
+  "homepage": "https://github.com/MattouFP/the-dom",
   "scripts": {
     "test": "browserify tests/*.js | tape-run --render='tap-spec'"
   },
@@ -13,7 +21,7 @@
     "shortcut"
   ],
   "author": "Mattéo Delabre",
-  "license": "MIT",
+  "license": "CC0-1.0",
   "devDependencies": {
     "browserify": "^12.0.1",
     "tap-spec": "^4.1.1",
