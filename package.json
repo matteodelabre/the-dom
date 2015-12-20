@@ -5,12 +5,12 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/MattouFP/the-dom.git"
+    "url": "git+https://github.com/matteodelabre/the-dom.git"
   },
   "bugs": {
-    "url": "https://github.com/MattouFP/the-dom/issues"
+    "url": "https://github.com/matteodelabre/the-dom/issues"
   },
-  "homepage": "https://github.com/MattouFP/the-dom",
+  "homepage": "https://github.com/matteodelabre/the-dom",
   "scripts": {
     "test": "browserify tests/*.js | tape-run --render='tap-spec'"
   },
