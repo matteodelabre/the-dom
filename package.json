@@ -20,6 +20,9 @@
     "tree",
     "shortcut"
   ],
+  "engines": {
+    "node" : ">=4.0.0"
+  },
   "author": "Mattéo Delabre",
   "license": "CC0-1.0",
   "devDependencies": {
