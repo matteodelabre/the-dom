@@ -38,15 +38,16 @@ test('should traverse children', assert => {
     assert.ok(node(body).find('div').equal(div), 'find div in body');
     assert.ok(node(head).find('title').equal(title), 'find title in head');
     assert.equal(node(body).find('undef'), null, 'don\'t wrap null');
-
-    // assert.equal(node(body).findAll('div').length, 2, 'find all divs');
+    assert.equal(node(body).findAll('div').length, 2, 'find all divs');
 
     assert.end();
 });
 
 test('should move in the DOM tree', assert => {
     assert.ok(node(body).find('div').parent.equal(body), 'div parent');
-    // assert.equal(node(head).children()[1], node(title), 'head children');
+    assert.ok(node(head).children[1].equal(title), 'head children');
+    assert.equal(node(title).preceding.type, 'meta', 'before title');
+    assert.ok(node(div).following.class.has('test2'), 'after div');
 
     assert.end();
 });
