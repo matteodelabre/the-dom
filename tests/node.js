@@ -47,7 +47,7 @@ test('should traverse children', assert => {
 test('should move in the DOM tree', assert => {
     assert.ok(node(body).find('div').parent.equal(body), 'div parent');
     assert.ok(node(head).children[1].equal(title), 'head children');
-    assert.equal(node(title).preceding.type, 'meta', 'before title');
+    assert.equal(node(title).preceding.name, 'meta', 'before title');
     assert.ok(node(div).following.class.has('test2'), 'after div');
 
     assert.end();
@@ -67,9 +67,9 @@ test('should perform position checks', assert => {
 });
 
 test('should access and set els properties and attributes', assert => {
-    assert.equal(node(body).type, 'body', 'body type');
-    assert.equal(node(body).kind, 'element', 'body kind');
-    assert.equal(node(document).kind, 'document', 'doc kind');
+    assert.equal(node(body).name, 'body', 'body name');
+    assert.equal(node(body).type, 'element', 'body type');
+    assert.equal(node(document).type, 'document', 'doc type');
     assert.equal(node(head).find('meta').getAttr('charset'), 'utf-8', 'get charset attribute');
 
     node(div).setAttr('data-test', 'true');
