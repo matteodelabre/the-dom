@@ -121,6 +121,12 @@ test('should change tree', assert => {
     subnode.attach(node(body));
     assert.ok(subnode.parent.equal(body), 'attach node');
 
+    subnode.remove();
+    assert.ok(!node(body).find('span'), 'remove el');
+    subnode.attach(body);
+    node(body).remove(subnode);
+    assert.ok(!node(body).find('span'), 'remove el from parent');
+
     assert.end();
 });
 
