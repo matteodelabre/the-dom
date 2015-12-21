@@ -7,20 +7,25 @@ const body = document.body;
 const head = document.head;
 
 // inject test elements
-head.innerHTML = `
-<meta charset="utf-8">
-<title>This is a test title</title>
-`;
+let div, title;
+const init = () => {
+    head.innerHTML = `
+    <meta charset="utf-8">
+    <title>This is a test title</title>
+    `;
 
-body.innerHTML = `
-<div class="test" style="color: red"></div>
-<div class="test2" style="color: red"></div>
-`;
+    body.innerHTML = `
+    <div class="test" style="color: red"></div>
+    <div class="test2" style="color: red"></div>
+    `;
 
-const div = document.getElementsByTagName('div')[0];
-const title = document.getElementsByTagName('title')[0];
+    div = document.getElementsByTagName('div')[0];
+    title = document.getElementsByTagName('title')[0];
+};
 
 test('should wrap any node', assert => {
+    init();
+
     assert.equal(typeof node(body), 'object', 'wrap body');
     assert.equal(typeof node(head), 'object', 'wrap head');
 
@@ -28,6 +33,8 @@ test('should wrap any node', assert => {
 });
 
 test('should provide access to the unwrapped node', assert => {
+    init();
+
     assert.equal(node(body).node, body, 'unwrap body');
     assert.equal(node(head).node, head, 'unwrap head');
 
@@ -35,6 +42,8 @@ test('should provide access to the unwrapped node', assert => {
 });
 
 test('should traverse children', assert => {
+    init();
+
     assert.ok(node(body).find('div').equal(div), 'find div in body');
     assert.ok(node(head).find('title').equal(title), 'find title in head');
     assert.equal(node(body).find('undef'), null, 'don\'t wrap null');
@@ -45,6 +54,8 @@ test('should traverse children', assert => {
 });
 
 test('should move in the DOM tree', assert => {
+    init();
+
     assert.ok(node(body).find('div').parent.equal(body), 'div parent');
     assert.ok(node(head).children[1].equal(title), 'head children');
     assert.equal(node(title).preceding.name, 'meta', 'before title');
@@ -54,6 +65,8 @@ test('should move in the DOM tree', assert => {
 });
 
 test('should perform position checks', assert => {
+    init();
+
     assert.ok(!node(body).precedes(head), 'body does not precede head');
     assert.ok(node(body).follows(head), 'body follows head');
     assert.ok(!node(head).follows(body), 'head does not follow body');
@@ -67,6 +80,8 @@ test('should perform position checks', assert => {
 });
 
 test('should access and set els properties and attributes', assert => {
+    init();
+
     assert.equal(node(body).name, 'body', 'body name');
     assert.equal(node(body).type, 'element', 'body type');
     assert.equal(node(document).type, 'document', 'doc type');
@@ -79,6 +94,8 @@ test('should access and set els properties and attributes', assert => {
 });
 
 test('should change content', assert => {
+    init();
+
     let subnode = node(document.createElement('span'));
 
     assert.equal(subnode.content, '', 'get content');
@@ -94,6 +111,8 @@ test('should change content', assert => {
 });
 
 test('should change tree', assert => {
+    init();
+
     let subnode = node(document.createElement('span'));
 
     assert.equal(subnode.parent, null, 'new node has no parent');
@@ -106,11 +125,11 @@ test('should change tree', assert => {
 });
 
 test('should subscribe to events', assert => {
+    init();
+
     const handler = e => {
         assert.equal(e.clientX, 100, 'keep event data');
         assert.end();
-
-        node(div).off('click', handler);
     };
 
     node(div).on('click', handler);
@@ -121,11 +140,11 @@ test('should subscribe to events', assert => {
 });
 
 test('should subscribe to multiple events', assert => {
+    init();
+
     const handler = e => {
         assert.equal(e.deltaX, 10, 'keep event data');
         assert.end();
-
-        node(div).off('click wheel', handler);
     };
 
     node(div).on('click wheel', handler);
@@ -136,6 +155,8 @@ test('should subscribe to multiple events', assert => {
 });
 
 test('should unsubscribe to events', assert => {
+    init();
+
     let handler = () => {
         assert.error(new Error('Should not trigger a click'), 'this should not be called');
     };
@@ -144,6 +165,5 @@ test('should unsubscribe to events', assert => {
     node(div).off('click', handler);
 
     div.dispatchEvent(new MouseEvent('click'));
-
     process.nextTick(() => assert.end());
 });

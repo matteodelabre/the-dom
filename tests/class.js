@@ -6,9 +6,8 @@ const wrapClass = require('../lib/class');
 const body = document.body;
 const classes = wrapClass(body);
 
-body.className = '';
-
 test('should add, delete, clear and test for classes', assert => {
+    body.className = '';
     assert.equal(classes.size, 0, 'initially empty');
 
     classes.add('test');

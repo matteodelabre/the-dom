@@ -6,9 +6,9 @@ const wrapStyle = require('../lib/style');
 const body = document.body;
 const styles = wrapStyle(body);
 
-body.setAttribute('style', 'color: red');
-
 test('should add, delete, clear and test for styles', assert => {
+    body.setAttribute('style', 'color: red');
+    
     assert.ok(styles.has('color'), 'check already defined style');
     assert.equal(styles.get('color'), 'red', 'already defined style value');
 
