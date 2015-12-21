@@ -9,13 +9,13 @@ const classes = wrapClass(body);
 body.className = '';
 
 test('should add, delete, clear and test for classes', assert => {
-    assert.equal(classes.length, 0, 'initially empty');
+    assert.equal(classes.size, 0, 'initially empty');
 
     classes.add('test');
     assert.equal(body.classList[0], 'test', 'add class');
     assert.ok(classes.has('test'), 'has class');
 
-    assert.equal(classes.length, 1, 'update length');
+    assert.equal(classes.size, 1, 'update length');
 
     body.className = '';
     assert.ok(!classes.has('test'), 'has class after dom emptied');
@@ -30,14 +30,14 @@ test('should add, delete, clear and test for classes', assert => {
     assert.ok(classes.has('bar'), 'keep other classes');
 
     classes.add('foo');
-    const domlength = body.className.length, setlength = classes.length;
+    const domlength = body.className.length, setlength = classes.size;
     classes.add('foo');
     assert.equal(domlength, body.className.length, 'do not add duplicates in DOM');
-    assert.equal(setlength, classes.length, 'do not add duplicates in the set');
+    assert.equal(setlength, classes.size, 'do not add duplicates in the set');
 
     classes.clear();
     assert.equal(body.className, '', 'clear classes');
-    assert.equal(classes.length, 0, 'length := 0');
+    assert.equal(classes.size, 0, 'length := 0');
 
     assert.end();
 });
