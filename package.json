@@ -1,6 +1,6 @@
 {
   "name": "the-dom",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "A lightweight module providing a clean API to work with DOM nodes",
   "main": "index.js",
   "repository": {
@@ -21,7 +21,7 @@
     "shortcut"
   ],
   "engines": {
-    "node" : ">=4.0.0"
+    "node": ">=4.0.0"
   },
   "author": "Mattéo Delabre",
   "license": "CC0-1.0",
