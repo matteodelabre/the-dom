@@ -152,7 +152,7 @@ This module is not in its stable state. We have probably
 missed some features or added some that aren't necessary.
 If you see one, please
 [fill in an issue](https://github.com/matteodelabre/the-dom/issues/new)
-(or maybe [fix it by yourself?](https://github.com/matteodelabre/the-dom/pulls/new/master))
+(or maybe [fix it by yourself?](https://github.com/matteodelabre/the-dom/pull/new/master))
 so that we can try to fix that as soon as possible.
 
 In the meantime, please consider that due to this module being
@@ -167,5 +167,6 @@ Check out the [contribution guide.](https://github.com/matteodelabre/the-dom/blo
 ## License
 
 This module is dedicated to the public domain with hope that
-it will be useful to others. **No rights reserved.** For more information,
+it will be useful to others.  
+**No rights reserved.** For more information,
 see the [LICENSE.](https://github.com/matteodelabre/the-dom/blob/master/LICENSE)
