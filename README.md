@@ -7,12 +7,21 @@ A lightweight module providing a clean API to work with DOM nodes.
 [![build status](https://img.shields.io/travis/matteodelabre/the-dom.svg?style=flat-square)](https://travis-ci.org/matteodelabre/mthe-dom)
 [![dependencies status](http://img.shields.io/david/matteodelabre/the-dom.svg?style=flat-square)](https://david-dm.org/matteodelabre/the-dom)
 
+The DOM is the result of years of implementation-specific inventions kept for backwards compatibility and patterns that simply have no place in Javascript.
+This makes **the DOM slow and ugly.**
+While we can't easily solve the performance issues, this module attempts to make the DOM API more usable.
+
+This module should be kept lightweight and straightforward. If you see a feature that can't be achieved simply with the current API, or if you think that a feature proves to be useless, please [fill in an issue.](https://github.com/matteodelabre/the-dom/issues/new)
 
 ## Install
 
 ```sh
 npm install --save the-dom
 ```
+
+## Usage
+
+== TODO ==
 
 ## Contributing
 
