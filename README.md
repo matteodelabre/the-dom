@@ -136,15 +136,46 @@ if (body.class.has('landscape')) {
 
 #### Listening to events
 
-== TODO ==
+The two usual methods for listening to events,
+`addEventListener()` and `removeEventListener()` have been
+aliased to `on()` and `off()` for convenience. They are
+also extended so that if you give it a list of whitespace-separated
+events, listeners will be set up for every event.
+You can also call `on()` and `off()` on a list of nodes, and
+listeners will be set up for each node in the list.
+
+```js
+body.find('form#login')
+    .on('submit', evt => {
+        // do some ajax thing
+        evt.preventDefault();
+    });
+```
 
 #### Adding and removing elements
 
-== TODO ==
+To attach an element to a parent node, use `child.attach(parent)`,
+and for the other way round, `parent.append(child)`. You can also
+remove an element with `remove()`. If called without any argument,
+`remove()` will remove the node by itself. If called with an argument,
+it will remove the argument node from the element.
+
+```js
+const div = dom.create('div');
+div.text = 'Just testing element addition';
+div.attach(body); // or body.append(div);
+body.remove(div); // or div.remove();
+```
 
 #### Changing contents
 
-== TODO ==
+Aliases have been set up for `textContent` and
+`innerHTML` to `text` and `html` for convenience. They
+work just like the normal DOM properties.
+
+```js
+head.find('title').text = 'New title';
+```
 
 #### Something else?
 
