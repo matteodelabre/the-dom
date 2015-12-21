@@ -22,8 +22,8 @@ npm install --save the-dom
 ## Usage
 
 You can use this module in a browser (using [browserify](https://npmjs.com/package/browserify))
-or with Node.JS. Use the `html` method to import an HTML document and start working, or
-the more generic `import` method to import any kind of DOM node.
+or with Node.JS. Use the `html()` method to import an HTML document and start working, or
+the more generic `import()` method to import any kind of DOM node.
 
 ### Example
 
@@ -58,7 +58,7 @@ body.findAll('div')
 ```
 
 would alert every time you click on a div that has the `clickable` class.
-The `findAll` methods returns an augmented Array that makes it possible
+The `findAll()` methods returns an augmented Array that makes it possible
 to filter DOM nodes based on their attributes or contents.
 
 ### Reference
@@ -76,14 +76,14 @@ With `the-dom`, you can:
 #### Finding children
 
 Given any node, you can search among its children elements using
-the `find` and `findAll` methods.
+the `find()` and `findAll()` methods.
 
 ```js
 body.findAll('div'); // returns an Array[] of all divs inside the body
 body.find('span'); // returns the first span element, or null if there is no span element
 ```
 
-The fact that `find` returns `null` when there is no
+The fact that `find()` returns `null` when there is no
 matches unlike other DOM modules like jQuery will throw
 errors whenever you try to call a method on it:
 
