@@ -78,32 +78,6 @@ test('should access and set els properties and attributes', assert => {
     assert.end();
 });
 
-test('should manipulate class names as a set', assert => {
-    let divNode = node(div);
-
-    assert.ok(divNode.class.has('test'), 'div has `test` class');
-    assert.equal(divNode.class.size, 1, 'div has 1 class');
-
-    divNode.class.add('added-class');
-    assert.ok(divNode.class.has('added-class'), 'add class');
-    assert.equal(div.classList[1], 'added-class', 'add class in dom');
-
-    divNode.class.delete('test');
-    assert.ok(!divNode.class.has('test'), 'remove class');
-    assert.equal(div.classList[1], undefined, 'remove class from dom');
-
-    divNode.class.clear();
-    assert.equal(divNode.class.size, 0, 'empty class');
-
-    div.className = 'update';
-    assert.ok(divNode.class.has('update'), 'update additions from dom');
-
-    div.className = '';
-    assert.ok(!divNode.class.has('update'), 'update removals from dom');
-
-    assert.end();
-});
-
 test('should manpulate styles as a map', assert => {
     let divNode = node(div);
 
