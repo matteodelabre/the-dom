@@ -98,14 +98,14 @@ test('should change content', assert => {
 
     let subnode = node(document.createElement('span'));
 
-    assert.equal(subnode.content, '', 'get content');
-    subnode.content = 'This is a test';
-    assert.equal(subnode.content, 'This is a test', 'change content');
+    assert.equal(subnode.text, '', 'get text');
+    subnode.text = 'This is a test';
+    assert.equal(subnode.text, 'This is a test', 'change text');
 
     assert.equal(subnode.html, 'This is a test', 'get html');
     subnode.html = '<span>subtest</span>';
-    assert.equal(subnode.content, 'subtest', 'get content inside html');
-    assert.equal(subnode.html, '<span>subtest</span>', 'change html contents');
+    assert.equal(subnode.text, 'subtest', 'get text inside html');
+    assert.equal(subnode.html, '<span>subtest</span>', 'change html');
 
     assert.end();
 });
