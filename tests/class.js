@@ -42,7 +42,7 @@ test('should add, delete, clear and test for classes', assert => {
     assert.end();
 });
 
-test('should implement iterators', assert => {
+test('should implement iterators in classes', assert => {
     const classNames = ['a', 'b', 'c'];
     body.className = classNames.join(' ');
 

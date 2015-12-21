@@ -78,39 +78,6 @@ test('should access and set els properties and attributes', assert => {
     assert.end();
 });
 
-test('should manpulate styles as a map', assert => {
-    let divNode = node(div);
-
-    assert.ok(divNode.style.has('color'), 'div has `color` style');
-    assert.equal(divNode.style.get('color'), 'red', 'color is red');
-
-    divNode.style.set('color', 'yellow');
-    assert.equal(divNode.style.get('color'), 'yellow', 'set color to yellow');
-    assert.equal(div.style.color, 'yellow', 'set color in DOM');
-
-    divNode.style.delete('color');
-    assert.equal(divNode.style.get('color'), null, 'remove color');
-    assert.equal(divNode.style.size, 0, 'update styles length');
-    assert.equal(div.style.color, '', 'remove color from DOM');
-
-    divNode.style.set('font-size', '2em');
-    assert.equal(divNode.style.get('font-size'), '2em', 'add new style');
-    assert.equal(divNode.style.size, 1, 'update styles length');
-    assert.equal(div.style.fontSize, '2em', 'add style in DOM');
-
-    div.style.fontSize = '';
-    assert.equal(divNode.style.get('font-size'), null, 'update removals from DOM');
-
-    div.style.color = 'black';
-    assert.equal(divNode.style.get('color'), 'black', 'update additions from DOM');
-
-    divNode.style.clear();
-    assert.equal(divNode.style.size, 0, 'empty styles');
-    assert.equal(div.style.length, 0, 'empty styles in DOM');
-
-    assert.end();
-});
-
 test('should change content', assert => {
     let subnode = node(document.createElement('span'));
 
