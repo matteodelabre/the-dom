@@ -154,16 +154,50 @@ test('should subscribe to multiple events', assert => {
     }));
 });
 
-test('should unsubscribe to events', assert => {
+test('should unsubscribe from events', assert => {
     init();
 
-    let handler = () => {
-        assert.error(new Error('Should not trigger a click'), 'this should not be called');
+    const handler = () => {
+        assert.fail('should not trigger a click');
+        assert.end();
     };
 
     node(div).on('click', handler);
     node(div).off('click', handler);
 
     div.dispatchEvent(new MouseEvent('click'));
-    process.nextTick(() => assert.end());
+    process.nextTick(() => {
+        assert.pass('No event triggered.');
+        assert.end();
+    });
+});
+
+test('should subscribe a list of nodes to events', assert => {
+    init();
+    assert.plan(2);
+
+    node(body).findAll('div').on('click', () => assert.pass('Click event received'));
+
+    div.dispatchEvent(new MouseEvent('click'));
+    node(div).following.node.dispatchEvent(new MouseEvent('click'));
+});
+
+test('should unsubscribe a list of nodes from events', assert => {
+    init();
+
+    const handler = () => {
+        assert.fail('should not trigger a click');
+        assert.end();
+    };
+
+    node(body).findAll('div').on('click', handler);
+    node(body).findAll('div').off('click', handler);
+
+    div.dispatchEvent(new MouseEvent('click'));
+    node(div).following.node.dispatchEvent(new MouseEvent('click'));
+
+    process.nextTick(() => {
+        assert.pass('No event triggered.');
+        assert.end();
+    });
 });
