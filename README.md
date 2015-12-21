@@ -35,12 +35,10 @@ Consider the following HTML document:
 <body>
     <div>
         <h1>Section 1</h1>
-
         <div class="clickable">Test</div>
     </div>
     <div>
         <h1>Section 2</h1>
-
         <div class="clickable">Test</div>
     </div>
 </body>
