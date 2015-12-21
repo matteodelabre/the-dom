@@ -1,4 +1,4 @@
-# mongoose-beautiful-unique-validation
+# the-dom
 
 A lightweight module providing a clean API to work with DOM nodes.
 
@@ -16,8 +16,8 @@ npm install --save the-dom
 
 ## Contributing
 
-Check out the [contribution guide.](https://github.com/matteodelabre/mongoose-beautiful-unique-validation/blob/master/CONTRIBUTING.md)
+Check out the [contribution guide.](https://github.com/matteodelabre/the-dom/blob/master/CONTRIBUTING.md)
 
 ## License
 
-See the [LICENSE.](https://github.com/matteodelabre/mongoose-beautiful-unique-validation/blob/master/LICENSE)
+See the [LICENSE.](https://github.com/matteodelabre/the-dom/blob/master/LICENSE)
