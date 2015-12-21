@@ -21,8 +21,9 @@ npm install --save the-dom
 
 ## Usage
 
-You can use this module in a browser (using browserify) or with Node.JS.
-Use the `html` method to import an HTML document and start working.
+You can use this module in a browser (using [browserify](https://npmjs.com/package/browserify))
+or with Node.JS. Use the `html` method to import an HTML document and start working, or
+the more generic `import` method to import any kind of DOM node.
 
 ### Example
 
